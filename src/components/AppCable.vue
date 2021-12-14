@@ -26,12 +26,24 @@
         +
       </button>
     </div>
-    <div
-      class="flex flex-col text-center"
-      v-for="cable in cables"
-      :key="cable.id"
-    >
-      <div class="border-2 p-4">{{ cable.text }}</div>
+    <div class="border-2">
+      <div
+        class="flex flex-col text-center p-2 break-words"
+        v-for="cable in cables"
+        :key="cable.id"
+      >
+        <div
+          class="border-2 flex justify-between text-xl pl-2 items-center h-12 w-64 break-words"
+        >
+          <p class="break-worlds">{{ cable.text }}</p>
+          <button
+            class="bg-red-300 hover:bg-red-600 hover:shadow-xl h-12 w-12 text-3xl text-white"
+            @click="remove(cable.id)"
+          >
+            X
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -40,7 +52,7 @@
 export default {
   data() {
     return {
-        show: false,
+      show: false,
       cable: "",
       item: {
         id: "",
@@ -67,6 +79,9 @@ export default {
     },
     close() {
       this.show = false;
+    },
+    remove(cableId) {
+      this.cables = this.cables.filter((cable) => cable.id !== cableId);
     },
   },
 };

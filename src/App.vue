@@ -1,88 +1,47 @@
 <template>
- <div class="flex justify-center"><h1>CONNECTION APP</h1> 
-     <Table></Table>
+  <div class="flex flex-col">
+    <h1>CONNECTION APP</h1>
+    <div class="flex flex-row justify-between">
+      <app-table class="mr-20"></app-table>
 
-      <Cable></Cable>
+      <app-cable class="mx-20"></app-cable>
 
-      <Switches></Switches>
+      <app-switches class="mx-20"></app-switches>
 
-      <IP></IP>
+      <app-ip class="mx-20"></app-ip>
 
-      <Computer></Computer>   </div>
-    <!-- <div class="break-words container flex flex-row justify-between">
-      <div>
-          <div v-if="show" class="flex justify-center m-4">
-      <div>
-        <h3 class="text-xl text-yellow-500">Add Tables</h3>
-        <input v-model="table" type="text" class="border-2 m-2">
-      </div>
-      <div>
-       <button class="bg-blue-300 hover:bg-blue-600 hover:shadow-xl flex flex-row text-center  p-2 m-2" @click="add()">  add  </button>
-      <button class="bg-red-300 hover:bg-red-600 hover:shadow-xl flex flex-row text-center  p-2 m-2" @click="close()">kapat</button>
-      </div>
-
-      </div> 
-       <div class="m-4 justify-between">Tables <button class="rounded-full border-2 w-12 h-12" @click="tablesAdd()">+</button></div>
-      <div class="flex flex-col text-center" v-for="table in tables" :key="table.id">
-        <div class="border-2 p-4 " >{{table.text}}</div>
-      </div>
-      </div> -->
-      
-  
-
-      <!-- <div class="flex flex-col text-center">
-        <div class="m-4 ">Switches <button class="rounded-full border-2 w-12 h-12"  @click="switchesAdd()">+</button></div>
-        <div class="border-2 p-4 " >{{switche.text}}</div>
-      </div>
-
-      <div class="flex flex-col text-center">
-        <div class="m-4 ">IP <button class="rounded-full border-2 w-12 h-12"  @click="IPAdd()">+</button></div>
-        <div class="border-2 p-4 " >{{ip.text}}</div>
-      </div>
-
-      <div class="flex flex-col text-center">
-        <div class="m-4 ">Computer <button class="rounded-full border-2 w-12 h-12"  @click="computerAdd()">+</button></div>
-        <div class="border-2 p-4" >{{computer.text}}</div>
-      </div>
-    </div> -->
-       <div class="flex justify-end ">
+      <app-computer class="mx-20"></app-computer>
+    </div>
+    <div class="flex justify-end">
       <button class="border-2 p-4">Import Data</button>
       <button class="border-2 p-4">Download Data</button>
     </div>
+  </div>
 </template>
 <script>
+import draggable from "vuedraggable";
 
-import Table from './components/Table.vue';
-
-import Cable from './components/Cable.vue';
-
-import Switches from './components/Switches.vue';
-
-import IP from './components/IP.vue';
-
-import Computer from './components/Computer.vue'
+import AppTable from "./components/AppTable.vue";
+import AppCable from "./components/AppCable.vue";
+import AppSwitches from "./components/AppSwitches.vue";
+import AppIp from "./components/AppIp.vue";
+import AppComputer from "./components/AppComputer.vue";
 
 export default {
- 
-  name: 'App',
+  name: "App",
   components: {
-    Table,
-    Cable,
-    Switches,
-    IP,
-    Computer
+    AppTable,
+    AppCable,
+    AppSwitches,
+    AppIp,
+    AppComputer,
+    draggable,
   },
   data() {
-    return{
-
-    }
+    return {};
   },
-
-  }
-
+};
 </script>
-
-
 
 <style>
 #app {
